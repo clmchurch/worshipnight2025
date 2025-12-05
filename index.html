@@ -1,0 +1,1437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WN'25 - Worship Night 2025 | Jesus: Worthy Forever</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #0a0a0a;
+            line-height: 1.6;
+            position: relative;
+            overflow-x: hidden;
+        }
+
+        /* Minimalist Corner Elements */
+        .logo-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 1000;
+        }
+
+        .logo-container img {
+            height: 45px;
+            width: auto;
+            filter: drop-shadow(0 2px 8px rgba(255, 165, 0, 0.3));
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-container img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(0 4px 12px rgba(255, 165, 0, 0.5));
+        }
+
+        .menu-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 165, 0, 0.3);
+            color: #ffa500;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            font-size: 1.2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .menu-button:hover {
+            background: rgba(255, 165, 0, 0.15);
+            border-color: #ffa500;
+            transform: rotate(90deg);
+        }
+
+        /* Minimalist Sidebar */
+        .sidebar {
+            position: fixed;
+            top: 0;
+            right: -280px;
+            width: 280px;
+            height: 100%;
+            background: rgba(10, 10, 10, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 2000;
+            transition: right 0.3s ease;
+            border-left: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .sidebar.active {
+            right: 0;
+        }
+
+        .sidebar-content {
+            padding: 80px 25px 25px 25px;
+        }
+
+        .nav-links {
+            display: flex;
+            flex-direction: column;
+            gap: 5px;
+            margin-bottom: 40px;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.95em;
+            font-weight: 500;
+            padding: 12px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            display: block;
+        }
+
+        .nav-links a:hover {
+            color: #ffa500;
+            background: rgba(255, 165, 0, 0.1);
+            transform: translateX(5px);
+        }
+
+        .social-links-sidebar {
+            display: flex;
+            gap: 12px;
+            padding: 20px 15px 0 15px;
+            border-top: 1px solid rgba(255, 165, 0, 0.2);
+        }
+
+        .social-links-sidebar a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 165, 0, 0.1);
+            border-radius: 50%;
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .social-links-sidebar a:hover {
+            background: rgba(255, 165, 0, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Overlay */
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1500;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .overlay.active {
+            display: block;
+            opacity: 1;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 30%, rgba(139, 0, 0, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(255, 107, 107, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 50% 50%, rgba(255, 165, 0, 0.08) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+            animation: morphBackground 15s ease-in-out infinite;
+        }
+
+        @keyframes morphBackground {
+            0%, 100% {
+                transform: scale(1) rotate(0deg);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.1) rotate(5deg);
+                opacity: 0.8;
+            }
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                linear-gradient(rgba(139, 0, 0, 0.04) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 0, 0, 0.04) 1px, transparent 1px);
+            background-size: 50px 50px;
+            pointer-events: none;
+            z-index: 0;
+            animation: gridSlide 20s linear infinite;
+        }
+
+        @keyframes gridSlide {
+            0% {
+                transform: translate(0, 0);
+            }
+            100% {
+                transform: translate(50px, 50px);
+            }
+        }
+
+        .hero-banner {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1;
+        }
+
+        .hero-banner img {
+            width: 100%;
+            height: 100%;
+            display: block;
+            object-fit: cover;
+            object-position: center;
+        }
+
+        .hero-banner .desktop-banner {
+            display: block;
+        }
+
+        .hero-banner .mobile-banner {
+            display: none;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #ffa500 0%, #ff6b6b 100%);
+            color: white;
+            padding: 18px 70px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2em;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 30px rgba(255, 165, 0, 0.4);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+            white-space: nowrap;
+        }
+
+        .hero-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 40px rgba(255, 165, 0, 0.6);
+        }
+
+        @keyframes bounce {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .aesthetic-poster {
+            width: 100%;
+            max-width: 900px;
+            margin: 60px auto;
+            background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+            border-radius: 30px;
+            overflow: hidden;
+            box-shadow: 
+                0 30px 80px rgba(139, 0, 0, 0.5),
+                0 0 0 1px rgba(255, 165, 0, 0.2),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            position: relative;
+            border: 4px solid transparent;
+            background-clip: padding-box;
+            animation: floatPoster 6s ease-in-out infinite;
+        }
+
+        @keyframes floatPoster {
+            0%, 100% {
+                transform: translateY(0px) scale(1);
+            }
+            50% {
+                transform: translateY(-8px) scale(1.01);
+            }
+        }
+
+        .aesthetic-poster::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, #ffa500, #ff6b6b, #ffa500);
+            border-radius: 30px;
+            z-index: -1;
+            animation: rotateBorder 4s linear infinite;
+            opacity: 0.6;
+        }
+
+        @keyframes rotateBorder {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .aesthetic-poster::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255, 255, 255, 0.3),
+                transparent
+            );
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% {
+                left: -100%;
+            }
+            50%, 100% {
+                left: 100%;
+            }
+        }
+
+        .poster-content {
+            padding: 70px 60px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .poster-header {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 4px solid transparent;
+            background: linear-gradient(white, white) padding-box,
+                        linear-gradient(90deg, #ffa500, #ff6b6b, #ffa500) border-box;
+            border-image: linear-gradient(90deg, #ffa500, #ff6b6b, #ffa500) 1;
+            border-width: 0 0 4px 0;
+            border-style: solid;
+            animation: borderFlow 3s linear infinite;
+        }
+
+        @keyframes borderFlow {
+            0% {
+                border-image-source: linear-gradient(90deg, #ffa500, #ff6b6b, #ffa500);
+            }
+            50% {
+                border-image-source: linear-gradient(90deg, #ff6b6b, #ffa500, #ff6b6b);
+            }
+            100% {
+                border-image-source: linear-gradient(90deg, #ffa500, #ff6b6b, #ffa500);
+            }
+        }
+
+        .poster-icon {
+            font-size: 4em;
+            filter: drop-shadow(0 5px 15px rgba(255, 165, 0, 0.4));
+            animation: iconBounce 2s ease-in-out infinite;
+        }
+
+        @keyframes iconBounce {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-10px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-5px) rotate(5deg);
+            }
+        }
+
+        .poster-title {
+            font-size: 4.5em;
+            font-weight: 900;
+            font-style: italic;
+            background: linear-gradient(135deg, #ffa500, #ff8c00, #ff6b6b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-transform: uppercase;
+            line-height: 0.9;
+            letter-spacing: -3px;
+            text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+            animation: gradientText 3s ease-in-out infinite;
+        }
+
+        @keyframes gradientText {
+            0%, 100% {
+                background-position: 0% 50%;
+            }
+            50% {
+                background-position: 100% 50%;
+            }
+        }
+
+        .poster-featured {
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+            padding: 50px;
+            border-radius: 20px;
+            margin: 30px 0;
+            box-shadow: 
+                0 15px 40px rgba(0,0,0,0.3),
+                inset 0 -5px 20px rgba(255, 165, 0, 0.1),
+                0 0 0 3px rgba(255, 165, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .poster-featured::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: 
+                radial-gradient(circle, rgba(255, 165, 0, 0.15) 0%, transparent 70%),
+                radial-gradient(circle at 70% 70%, rgba(255, 107, 107, 0.1) 0%, transparent 60%);
+        }
+
+        .featured-content {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .featured-main {
+            font-size: 5.5em;
+            font-weight: 900;
+            color: white;
+            font-style: italic;
+            text-align: center;
+            line-height: 0.9;
+            text-shadow: 
+                3px 3px 6px rgba(0,0,0,0.5),
+                0 0 40px rgba(255, 165, 0, 0.4),
+                0 0 80px rgba(255, 165, 0, 0.2);
+            animation: glow 2s ease-in-out infinite;
+        }
+
+        @keyframes glow {
+            0%, 100% {
+                text-shadow: 
+                    3px 3px 6px rgba(0,0,0,0.5),
+                    0 0 40px rgba(255, 165, 0, 0.4),
+                    0 0 80px rgba(255, 165, 0, 0.2);
+            }
+            50% {
+                text-shadow: 
+                    3px 3px 6px rgba(0,0,0,0.5),
+                    0 0 50px rgba(255, 165, 0, 0.6),
+                    0 0 100px rgba(255, 165, 0, 0.3);
+            }
+        }
+
+        .featured-sub {
+            font-size: 1.8em;
+            color: #ffa500;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                opacity: 0.9;
+                transform: scale(1);
+            }
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        .poster-body {
+            margin-top: 40px;
+        }
+
+        .body-section {
+            margin: 30px 0;
+        }
+
+        .body-heading {
+            font-size: 1.8em;
+            font-weight: 900;
+            color: #ff6b6b;
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .body-text {
+            font-size: 1.15em;
+            color: #555;
+            line-height: 1.8;
+            font-weight: 500;
+        }
+
+        .body-text strong {
+            color: #1a1a1a;
+            font-weight: 700;
+        }
+
+        .highlight-box {
+            background: #f8f9fa;
+            color: #555;
+            padding: 20px 30px;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 1.1em;
+            margin: 30px 0;
+            border: 2px solid #e0e0e0;
+        }
+
+        .venue-showcase {
+            margin: 40px 0;
+        }
+
+        .venue-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+        }
+
+        .venue-image-container {
+            width: 100%;
+            height: 350px;
+            border-radius: 15px;
+            overflow: hidden;
+            margin: 25px 0;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+            border: 4px solid #ffa500;
+        }
+
+        .venue-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .venue-name {
+            font-size: 2.2em;
+            font-weight: 900;
+            color: #1a1a1a;
+            text-align: center;
+            margin: 20px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .parking-info {
+            background: white;
+            padding: 35px;
+            border-radius: 15px;
+            border: 3px solid #ff6b6b;
+            margin-top: 30px;
+            box-shadow: 0 5px 20px rgba(255, 107, 107, 0.2);
+        }
+
+        .parking-header {
+            color: #ff6b6b;
+            font-size: 1.6em;
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 25px;
+            letter-spacing: 1px;
+        }
+
+        .parking-content {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            gap: 25px;
+            align-items: center;
+        }
+
+        .qr-code-box {
+            width: 140px;
+            height: 140px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+            border: 4px solid #ffa500;
+        }
+
+        .qr-code-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .map-box {
+            height: 140px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #e0e0e0;
+        }
+
+        .map-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .cta {
+            background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
+            color: white;
+            text-align: center;
+            padding: 80px 20px;
+            border-radius: 15px;
+            margin: 60px 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        footer {
+            background: #0a0a0a;
+            color: white;
+            text-align: center;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+            border-top: 2px solid rgba(139, 0, 0, 0.3);
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .ministry-name {
+            color: #ffa500;
+            font-weight: 700;
+            font-size: 1.3em;
+        }
+
+        @media (max-width: 768px) {
+            .logo-container {
+                top: 15px;
+                left: 15px;
+            }
+
+            .logo-container img {
+                height: 38px;
+            }
+
+            .menu-button {
+                top: 15px;
+                right: 15px;
+                width: 38px;
+                height: 38px;
+                font-size: 1.1em;
+            }
+
+            .sidebar {
+                width: 260px;
+            }
+
+            .hero-banner .desktop-banner {
+                display: none;
+            }
+
+            .hero-banner .mobile-banner {
+                display: block;
+            }
+
+            .hero-btn {
+                font-size: 0.9em;
+                padding: 14px 40px;
+                letter-spacing: 1px;
+            }
+
+            .aesthetic-poster {
+                margin: 30px auto;
+                border-radius: 20px;
+            }
+
+            .poster-content {
+                padding: 40px 25px;
+            }
+
+            .poster-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                margin-bottom: 30px;
+                padding-bottom: 20px;
+            }
+
+            .poster-icon {
+                font-size: 2.5em;
+            }
+
+            .poster-title {
+                font-size: 2.5em;
+                letter-spacing: -2px;
+            }
+
+            .poster-featured {
+                padding: 35px 25px;
+                margin: 25px 0;
+            }
+
+            .featured-main {
+                font-size: 3em;
+            }
+
+            .featured-sub {
+                font-size: 1.4em;
+                letter-spacing: 2px;
+            }
+
+            .body-heading {
+                font-size: 1.4em;
+                flex-wrap: wrap;
+            }
+
+            .body-text {
+                font-size: 1em;
+            }
+
+            .highlight-box {
+                padding: 15px 20px;
+                font-size: 1em;
+                margin: 20px 0;
+            }
+
+            .venue-card {
+                padding: 25px 20px;
+            }
+
+            .venue-image-container {
+                height: 220px;
+                margin: 20px 0;
+                border: 3px solid #ffa500;
+            }
+
+            .venue-name {
+                font-size: 1.6em;
+                margin: 15px 0;
+            }
+
+            .parking-info {
+                padding: 25px 20px;
+            }
+
+            .parking-header {
+                font-size: 1.3em;
+                margin-bottom: 20px;
+            }
+
+            .parking-content {
+                grid-template-columns: 1fr;
+                justify-items: center;
+                gap: 20px;
+            }
+
+            .qr-code-box,
+            .map-box {
+                width: 100%;
+                max-width: 200px;
+                height: 200px;
+            }
+
+            .cta {
+                padding: 50px 20px;
+                margin: 40px 0;
+            }
+
+            .cta > div > div:first-child {
+                font-size: 2.5em !important;
+                letter-spacing: 3px !important;
+            }
+
+            .cta > div > div:nth-child(2) {
+                font-size: 3em !important;
+                letter-spacing: 3px !important;
+            }
+
+            .cta p {
+                font-size: 1.1em !important;
+            }
+
+            /* Merch Section Mobile */
+            .poster-content div[style*="font-size: 3.5em"] {
+                font-size: 2em !important;
+            }
+
+            .poster-content img[alt="Worship Night Shirt"] {
+                max-height: 350px !important;
+            }
+
+            .poster-content div[style*="font-size: 3.5em"][style*="color: #1a1a1a"] {
+                font-size: 2.5em !important;
+            }
+
+            /* Playlist Section Mobile */
+            .poster-content div[style*="font-size: 2.8em"] {
+                font-size: 1.8em !important;
+            }
+
+            .poster-content div[style*="grid-template-columns: 1fr 1fr"] {
+                grid-template-columns: 1fr !important;
+            }
+
+            .poster-content div[style*="display: grid"][style*="grid-template-columns: 1fr 1fr"][style*="gap: 40px"] {
+                grid-template-columns: 1fr !important;
+                gap: 25px !important;
+            }
+
+            .poster-content img[alt="Spotify Code"],
+            .poster-content img[alt="Spotify Playlist QR Code"] {
+                max-width: 200px !important;
+            }
+
+            /* Size Modal Mobile */
+            #sizeModal > div {
+                padding: 30px 20px !important;
+            }
+
+            #sizeModal h2 {
+                font-size: 1.6em !important;
+                margin-bottom: 25px !important;
+            }
+
+            #sizeModal h3 {
+                font-size: 1.4em !important;
+            }
+
+            #sizeModal table {
+                font-size: 0.85em;
+            }
+
+            #sizeModal th,
+            #sizeModal td {
+                padding: 10px 8px !important;
+            }
+
+            /* Footer Mobile */
+            footer img[alt="CLM Logo"] {
+                height: 60px !important;
+            }
+
+            .social-links {
+                flex-direction: row !important;
+                gap: 15px !important;
+            }
+
+            .social-links a {
+                width: 40px !important;
+                height: 40px !important;
+            }
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes floatShirt {
+            0%, 100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-15px) rotate(2deg);
+            }
+        }
+
+        @keyframes swingTag {
+            0%, 100% {
+                transform: rotate(8deg) translateY(0px);
+            }
+            50% {
+                transform: rotate(5deg) translateY(-8px);
+            }
+        }
+
+        .aesthetic-poster {
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        @keyframes scaleIn {
+            from {
+                transform: scale(0.8);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 7px 20px rgba(0,0,0,0.3) !important;
+        }
+
+        footer a:hover svg {
+            opacity: 0.8;
+            filter: drop-shadow(0 4px 8px rgba(255, 165, 0, 0.4));
+        }
+
+        footer a:hover {
+            background: rgba(255, 165, 0, 0.25) !important;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+   
+    <!-- Menu button sa sulok -->
+    <button class="menu-button" onclick="toggleSidebar()">☰</button>
+
+    <!-- Overlay -->
+    <div class="overlay" id="overlay" onclick="toggleSidebar()"></div>
+
+    <!-- Minimalist Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-content">
+            <div class="nav-links">
+                <a href="#event-details" onclick="toggleSidebar()">Event Details</a>
+                <a href="#event-details" onclick="toggleSidebar(); setTimeout(() => document.querySelectorAll('.aesthetic-poster')[1].scrollIntoView({behavior: 'smooth'}), 300)">Time & Venue</a>
+                <a href="#event-details" onclick="toggleSidebar(); setTimeout(() => document.querySelectorAll('.aesthetic-poster')[3].scrollIntoView({behavior: 'smooth'}), 300)">Get Tickets</a>
+                <a href="#event-details" onclick="toggleSidebar(); setTimeout(() => document.querySelectorAll('.aesthetic-poster')[4].scrollIntoView({behavior: 'smooth'}), 300)">Merch</a>
+                <a href="#event-details" onclick="toggleSidebar(); setTimeout(() => document.querySelectorAll('.aesthetic-poster')[5].scrollIntoView({behavior: 'smooth'}), 300)">Playlist</a>
+            </div>
+            <div class="social-links-sidebar">
+                <a href="https://facebook.com/CLMintrl" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffa500">
+                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                    </svg>
+                </a>
+                <a href="https://instagram.com/clm.intrl" target="_blank">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#ffa500">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="hero-banner" id="hero">
+        <img src="images/poster1-desktop.jpg" alt="WN'25" class="desktop-banner">
+        <img src="images/poster1.jpg" alt="WN'25" class="mobile-banner">
+
+        <div class="hero-overlay">
+            <a href="#event-details" class="hero-btn">See Event Details</a>
+        </div>
+    </div>
+
+    <div id="event-details">
+        <div class="container">
+            <div class="aesthetic-poster">
+                <div class="poster-content">
+                    <div class="poster-header">
+                        <div class="poster-icon">📅</div>
+                        <div class="poster-title">WHEN?</div>
+                    </div>
+                    <div class="poster-featured">
+                        <div class="featured-content">
+                            <div class="featured-main">DECEMBER</div>
+                            <div class="featured-main" style="font-size: 1.2em; margin-top: -20px;">30</div>
+                            <div class="featured-sub">Tuesday, 2025</div>
+                        </div>
+                    </div>
+                    <div class="poster-body">
+                        <div class="body-text">
+                            Worship Night will happen at <strong>December 30</strong>—the perfect moment to look back and celebrate all that God has done for us throughout the year.
+                        </div>
+                        <div class="body-text" style="margin-top: 20px;">
+                            As the year comes to a close, we want to end it in His presence, thanking Him for His faithfulness and preparing our hearts for the year ahead.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aesthetic-poster">
+                <div class="poster-content">
+                    <div class="poster-header">
+                        <div class="poster-icon">🕔</div>
+                        <div class="poster-title">TIME?</div>
+                    </div>
+                    <div class="poster-featured">
+                        <div class="featured-content">
+                            <div class="featured-main">5:00</div>
+                            <div class="featured-sub">PM</div>
+                        </div>
+                    </div>
+                    <div class="highlight-box">Come Early!</div>
+                    <div class="poster-body">
+                        <div class="body-section">
+                            <div class="body-heading">☕ What's Available</div>
+                            <div class="body-text">
+                                Our venue will have a <strong>coffee cart</strong> and <strong>photowall</strong> ready for you—perfect for hanging out, connecting with others, and soaking in the atmosphere before worship begins.
+                            </div>
+                        </div>
+                        <div class="body-section">
+                            <div class="body-heading">📌 Important Note</div>
+                            <div class="body-text">
+                                The coffee cart will only be taking orders <strong>BEFORE</strong> and <strong>AFTER</strong> the event. Arrive early, settle in, and enjoy the full experience!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aesthetic-poster">
+                <div class="poster-content">
+                    <div class="poster-header">
+                        <div class="poster-icon">📍</div>
+                        <div class="poster-title">WHERE?</div>
+                    </div>
+                    <div class="venue-showcase">
+                        <div class="venue-card">
+                            <div class="venue-image-container">
+                                <img src="images/venue.jpg" alt="Mexico Mini Convention Center">
+                            </div>
+                            <div class="venue-name">Mexico Mini<br>Convention Center</div>
+                            <div class="body-text" style="text-align: center; margin: 25px 0;">
+                                By the provision of the Lord, Worship Night 2025 will take place at this blessed venue.
+                            </div>
+                            <div class="parking-info">
+                                <div class="parking-header">🚗 Parking Located Here</div>
+                                <div class="parking-content">
+                                    <div class="qr-code-box">
+                                        <img src="images/qr-code.png" alt="QR Code">
+                                    </div>
+                                    <div class="map-box">
+                                        <img src="images/map.png" alt="Map">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aesthetic-poster">
+                <div class="poster-content">
+                    <div class="poster-header">
+                        <div class="poster-icon">🎟️</div>
+                        <div class="poster-title">TICKETS?</div>
+                    </div>
+                    <div class="poster-featured">
+                        <div class="featured-content">
+                            <div class="featured-main">₱100</div>
+                            <div class="featured-sub">Only!</div>
+                        </div>
+                    </div>
+                    <div class="poster-body">
+                        <div class="body-section">
+                            <div class="body-heading">✨ What's Included</div>
+                            <div class="body-text">
+                                Your ticket includes <strong>food</strong> and supports the event. Get yours now and secure your spot for this blessed night of worship!
+                            </div>
+                        </div>
+                        <div class="body-section">
+                            <div class="body-heading">🎫 How to Get Your Ticket</div>
+                            <div class="body-text">
+                                Contact <strong>Regine Bondoc</strong> on Facebook to avail your ticket:<br>
+                                <a href="https://www.facebook.com/regine.bondoc.98" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #1a1a1a; font-weight: 700; text-decoration: none; margin-top: 10px;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a1a">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                    <span>facebook.com/regine.bondoc.98</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aesthetic-poster">
+                <div class="poster-content">
+                    <div class="poster-header">
+                        <div class="poster-icon">👕</div>
+                        <div class="poster-title">MERCH?</div>
+                    </div>
+
+                    <div style="text-align: center; margin: 40px 0 30px 0;">
+                        <div style="font-size: 3.5em; font-weight: 900; font-style: italic; background: linear-gradient(135deg, #ffa500, #ff8c00, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; letter-spacing: 2px; animation: gradientText 3s ease-in-out infinite;">
+                            GRAB YOUR
+                        </div>
+                        <div style="font-size: 3.5em; font-weight: 900; font-style: italic; background: linear-gradient(135deg, #ffa500, #ff8c00, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; letter-spacing: 2px; animation: gradientText 3s ease-in-out infinite; margin-top: -10px;">
+                            WORSHIP NIGHT SHIRT!
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 50px 0; min-height: 450px;">
+                        <img src="images/shirt.png" alt="Worship Night Shirt" style="max-width: 100%; height: auto; max-height: 500px; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));">
+                    </div>
+
+                    <div style="text-align: center; margin: 20px 0 30px 0;">
+                        <div style="font-size: 3.5em; font-weight: 700; color: #1a1a1a; margin-bottom: 25px;">₱300</div>
+                        <button onclick="document.getElementById('sizeModal').style.display='flex'" style="background: #1a1a1a; color: white; border: none; padding: 15px 40px; font-size: 1.1em; font-weight: 700; border-radius: 50px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                            Check Sizes
+                        </button>
+                    </div>
+
+                    <div class="poster-body">
+                        <div class="body-section">
+                            <div class="body-heading">
+                                🛍️ How to Order
+                            </div>
+                            <div class="body-text">
+                                Contact <strong>Regine Bondoc</strong> on Facebook to order your shirt:<br>
+                                <a href="https://www.facebook.com/regine.bondoc.98" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #1a1a1a; font-weight: 700; text-decoration: none; margin-top: 10px;">
+                                    <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a1a">
+                                        <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                                    </svg>
+                                    <span>facebook.com/regine.bondoc.98</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Size Modal -->
+            <div id="sizeModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.8); z-index: 9999; justify-content: center; align-items: center; animation: fadeIn 0.3s ease; overflow-y: auto; padding: 20px;">
+                <div style="position: relative; max-width: 900px; width: 100%; background: white; border-radius: 20px; padding: 40px 30px; box-shadow: 0 20px 60px rgba(0,0,0,0.5); animation: scaleIn 0.3s ease; margin: auto;">
+                    <button onclick="document.getElementById('sizeModal').style.display='none'" style="position: absolute; top: 15px; right: 15px; width: 40px; height: 40px; border: none; background: #ff6b6b; color: white; font-size: 1.5em; font-weight: bold; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.3s ease; box-shadow: 0 4px 10px rgba(255,107,107,0.3);">
+                        ×
+                    </button>
+                    <h2 style="text-align: center; color: #1a1a1a; margin-bottom: 30px; font-size: 2.2em; font-weight: 900;">SHIRT SIZES</h2>
+                    
+                    <!-- REGULAR -->
+                    <div style="margin-bottom: 40px;">
+                        <h3 style="text-align: center; color: #ff6b6b; font-size: 1.8em; font-weight: 900; margin-bottom: 20px; text-transform: uppercase;">REGULAR</h3>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; background: #f8f9fa; border-radius: 10px; overflow: hidden;">
+                                <thead>
+                                    <tr style="background: #1a1a1a; color: white;">
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">SIZE</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">WIDTH</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">LENGTH</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">SLEEVES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">XS</td>
+                                        <td style="padding: 12px; text-align: center;">18"</td>
+                                        <td style="padding: 12px; text-align: center;">25.5"</td>
+                                        <td style="padding: 12px; text-align: center;">6.8"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">S</td>
+                                        <td style="padding: 12px; text-align: center;">19"</td>
+                                        <td style="padding: 12px; text-align: center;">27"</td>
+                                        <td style="padding: 12px; text-align: center;">6.5"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">M</td>
+                                        <td style="padding: 12px; text-align: center;">20.2"</td>
+                                        <td style="padding: 12px; text-align: center;">29.5"</td>
+                                        <td style="padding: 12px; text-align: center;">7"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">L</td>
+                                        <td style="padding: 12px; text-align: center;">21"</td>
+                                        <td style="padding: 12px; text-align: center;">29.8"</td>
+                                        <td style="padding: 12px; text-align: center;">7"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">XL</td>
+                                        <td style="padding: 12px; text-align: center;">22.6"</td>
+                                        <td style="padding: 12px; text-align: center;">30"</td>
+                                        <td style="padding: 12px; text-align: center;">8"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">2XL</td>
+                                        <td style="padding: 12px; text-align: center;">23"</td>
+                                        <td style="padding: 12px; text-align: center;">31"</td>
+                                        <td style="padding: 12px; text-align: center;">8.5"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">3XL</td>
+                                        <td style="padding: 12px; text-align: center;">24.5"</td>
+                                        <td style="padding: 12px; text-align: center;">31.6"</td>
+                                        <td style="padding: 12px; text-align: center;">8.5"</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">4XL</td>
+                                        <td style="padding: 12px; text-align: center;">25.9"</td>
+                                        <td style="padding: 12px; text-align: center;">33.4"</td>
+                                        <td style="padding: 12px; text-align: center;">8.6"</td>
+                                    </tr>
+                                    <tr style="background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">5XL</td>
+                                        <td style="padding: 12px; text-align: center;">27.8"</td>
+                                        <td style="padding: 12px; text-align: center;">35.2"</td>
+                                        <td style="padding: 12px; text-align: center;">9.2"</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px; color: #666; font-size: 0.9em; font-style: italic;">
+                            Allow at least +/-0.5 inch difference due to manual measurement<br>
+                            <strong>Measurements in inches — AMERICAN SIZE</strong>
+                        </p>
+                    </div>
+
+                    <!-- OVERSIZED -->
+                    <div>
+                        <h3 style="text-align: center; color: #ff6b6b; font-size: 1.8em; font-weight: 900; margin-bottom: 20px; text-transform: uppercase;">OVERSIZED</h3>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; background: #f8f9fa; border-radius: 10px; overflow: hidden;">
+                                <thead>
+                                    <tr style="background: #1a1a1a; color: white;">
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">SIZE</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">WIDTH</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">LENGTH</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">SLEEVES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">S</td>
+                                        <td style="padding: 12px; text-align: center;">19.5</td>
+                                        <td style="padding: 12px; text-align: center;">26.8</td>
+                                        <td style="padding: 12px; text-align: center;">9.9</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">M</td>
+                                        <td style="padding: 12px; text-align: center;">19.7</td>
+                                        <td style="padding: 12px; text-align: center;">28.4</td>
+                                        <td style="padding: 12px; text-align: center;">10</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">L</td>
+                                        <td style="padding: 12px; text-align: center;">21.8</td>
+                                        <td style="padding: 12px; text-align: center;">29.2</td>
+                                        <td style="padding: 12px; text-align: center;">10.3</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">XL</td>
+                                        <td style="padding: 12px; text-align: center;">22</td>
+                                        <td style="padding: 12px; text-align: center;">29.9</td>
+                                        <td style="padding: 12px; text-align: center;">10.4</td>
+                                    </tr>
+                                    <tr style="border-bottom: 1px solid #e0e0e0;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">2XL</td>
+                                        <td style="padding: 12px; text-align: center;">23.8</td>
+                                        <td style="padding: 12px; text-align: center;">30.4</td>
+                                        <td style="padding: 12px; text-align: center;">10.5</td>
+                                    </tr>
+                                    <tr style="background: white;">
+                                        <td style="padding: 12px; text-align: center; font-weight: 700;">3XL</td>
+                                        <td style="padding: 12px; text-align: center;">25.3</td>
+                                        <td style="padding: 12px; text-align: center;">30.7</td>
+                                        <td style="padding: 12px; text-align: center;">10.7</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <p style="text-align: center; margin-top: 15px; color: #666; font-size: 0.9em; font-style: italic;">
+                            Allow at least +/-0.5 INCH difference due to manual measurement<br>
+                            <strong>MEASUREMENT IN INCHES</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="aesthetic-poster">
+                <div class="poster-content">
+                    <div class="poster-header">
+                        <div class="poster-icon">🎵</div>
+                        <div class="poster-title">PLAYLIST?</div>
+                    </div>
+
+                    <div style="text-align: center; margin: 40px 0 30px 0;">
+                        <div style="font-size: 2.8em; font-weight: 900; font-style: italic; background: linear-gradient(135deg, #ffa500, #ff8c00, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; letter-spacing: 2px;">
+                            WN'25 PLAYLIST
+                        </div>
+                    </div>
+
+                    <!-- Songs Grid -->
+                    <div style="display: grid; grid-template-columns: 1fr; gap: 30px; margin: 50px 0;">
+                        <div>
+                            <h3 style="color: #ff6b6b; font-size: 1.5em; font-weight: 900; margin-bottom: 20px; text-transform: uppercase; text-align: center;">Songs</h3>
+                            <div style="background: #f8f9fa; padding: 25px; border-radius: 15px; border-left: 5px solid #ffa500;">
+                                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">1. IS HE WORTHY - Jesus Image</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">2. ANOTHER LIKE YOU - Bethel Music</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">3. HIGHEST PRAISE - Paul Wickham, Matt Redman</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">4. BECAUSE OF JESUS - Charity Gayle</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">5. WHO ELSE - Gateway Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">6. FOR YOU ALONE - Walls of Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">7. WORTHY - Elevation Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">8. KARARAPAT - Spring Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">9. TAKE YOU AT YOUR WORD - Cody Carnes</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">10. HOW GREAT IS OUR GOD - Chris Tomlin</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">11. THE PRAISE IS YOURS - Matt Redman</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">12. NO ONE - Elevation Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">13. I'VE WITNESSED IT - Gateway Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">14. WITH EVERYTHING - Hillsong Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">15. AIT NG BAYAN - Victory Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">16. FREE! - SEU Worship</div>
+                                    <div style="padding: 8px 0; border-bottom: 1px solid #e0e0e0; color: #1a1a1a; font-weight: 600;">17. I KNOW THAT I KNOW - The Belonging Co</div>
+                                    <div style="padding: 8px 0; color: #1a1a1a; font-weight: 600;">18. BE MAGNIFIED - Gateway Worship</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Scan Images -->
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center; margin: 50px 0;">
+                        <!-- Spotify Code -->
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                            <div style="background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: 3px solid #ffa500;">
+                                <img src="images/spotify-code.jpg" alt="Spotify Code" style="width: 100%; max-width: 300px; height: auto; display: block; border-radius: 10px;">
+                            </div>
+                            <p style="color: #555; font-weight: 600; font-size: 0.95em;">Scan with Spotify App</p>
+                        </div>
+
+                        <!-- QR Code -->
+                        <div style="display: flex; flex-direction: column; align-items: center; gap: 15px;">
+                            <div style="background: white; padding: 15px; border-radius: 15px; box-shadow: 0 10px 40px rgba(0,0,0,0.15); border: 3px solid #ffa500;">
+                                <img src="images/spotify-qr.jpg" alt="Spotify Playlist QR Code" style="width: 100%; max-width: 300px; height: auto; display: block; border-radius: 10px;">
+                            </div>
+                            <p style="color: #555; font-weight: 600; font-size: 0.95em;">Scan with Camera</p>
+                        </div>
+                    </div>
+
+                    <div class="poster-body">
+                        <div style="text-align: center; color: #555; font-size: 1.1em; margin-top: 30px;">
+                            Get familiar with the songs, meditate on the lyrics, and prepare your heart for worship night!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="cta">
+                <div style="position: relative; z-index: 1;">
+                    <div style="font-size: 5em; font-weight: 900; font-style: italic; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 5px; text-shadow: 0 5px 20px rgba(0,0,0,0.3);">
+                        SEE YOU
+                    </div>
+                    <div style="font-size: 5.5em; font-weight: 900; font-style: italic; margin-top: -20px; background: linear-gradient(135deg, #ffa500, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-transform: uppercase; letter-spacing: 5px; animation: gradientText 3s ease-in-out infinite;">
+                        THERE!
+                    </div>
+                    <div style="width: 100px; height: 4px; background: linear-gradient(90deg, #ffa500, #ff6b6b); margin: 30px auto; border-radius: 2px; animation: pulse 2s ease-in-out infinite;"></div>
+                    <p style="font-size: 1.4em; font-weight: 400; margin-top: 30px; opacity: 0.9; line-height: 1.6; max-width: 600px; margin-left: auto; margin-right: auto;">
+                        Mark your calendar and join us for this blessed night of worship
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div style="display: flex; justify-content: center; margin-bottom: 25px;">
+            <img src="images/logo.png" alt="CLM Logo" style="height: 80px; width: auto; filter: drop-shadow(0 2px 8px rgba(255, 165, 0, 0.3));">
+        </div>
+        <div class="social-links" style="display: flex; gap: 15px; justify-content: center; align-items: center; margin-bottom: 25px;">
+            <a href="https://facebook.com/CLMintrl" target="_blank" style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255, 165, 0, 0.15); border-radius: 50%; transition: all 0.3s ease; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffa500" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
+                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+                </svg>
+            </a>
+            <a href="https://instagram.com/clm.intrl" target="_blank" style="display: flex; align-items: center; justify-content: center; width: 45px; height: 45px; background: rgba(255, 165, 0, 0.15); border-radius: 50%; transition: all 0.3s ease; text-decoration: none;">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#ffa500" style="filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));">
+                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                </svg>
+            </a>
+        </div>
+        <p>&copy; Christian Life Ministry. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            const overlay = document.getElementById('overlay');
+            
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>
