@@ -219,12 +219,30 @@
             z-index: 1;
         }
 
+        .hero-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.3) 100%);
+            z-index: 2;
+            pointer-events: none;
+        }
+
         .hero-banner img {
             width: 100%;
             height: 100%;
             display: block;
             object-fit: cover;
             object-position: center;
+            animation: subtleZoom 20s ease-in-out infinite;
+        }
+
+        @keyframes subtleZoom {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
         }
 
         .hero-banner .desktop-banner {
@@ -237,42 +255,81 @@
 
         .hero-overlay {
             position: absolute;
-            bottom: 30px;
+            bottom: 80px;
             left: 50%;
             transform: translateX(-50%);
             z-index: 10;
             text-align: center;
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
+        }
+
+        .hero-overlay {
+            position: absolute;
+            bottom: 80px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+            text-align: center;
+            animation: floatUp 3s ease-in-out infinite;
+        }
+
+        @keyframes floatUp {
+            0%, 100% { transform: translateX(-50%) translateY(0); }
+            50% { transform: translateX(-50%) translateY(-15px); }
         }
 
         .hero-btn {
             display: inline-block;
             background: linear-gradient(135deg, #ffa500 0%, #ff6b6b 100%);
             color: white;
-            padding: 18px 70px;
+            padding: 20px 80px;
             text-decoration: none;
             border-radius: 50px;
-            font-size: 1.2em;
+            font-size: 1.3em;
             font-weight: bold;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 30px rgba(255, 165, 0, 0.4);
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 
+                0 10px 40px rgba(255, 165, 0, 0.5),
+                0 0 0 0 rgba(255, 165, 0, 0.4);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            animation: bounce 2s infinite;
+            letter-spacing: 3px;
             white-space: nowrap;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            transform: translate(-50%, -50%);
+            transition: width 0.6s, height 0.6s;
+        }
+
+        .hero-btn:hover::before {
+            width: 400px;
+            height: 400px;
         }
 
         .hero-btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 12px 40px rgba(255, 165, 0, 0.6);
+            transform: translateY(-8px) scale(1.05);
+            box-shadow: 
+                0 20px 60px rgba(255, 165, 0, 0.7),
+                0 0 0 8px rgba(255, 165, 0, 0.2);
         }
 
-        @keyframes bounce {
-            0%, 100% {
-                transform: translateY(0);
-            }
-            50% {
-                transform: translateY(-10px);
-            }
+        .hero-btn:active {
+            transform: translateY(-4px) scale(1.02);
         }
 
         html {
@@ -302,6 +359,15 @@
             border: 4px solid transparent;
             background-clip: padding-box;
             animation: floatPoster 6s ease-in-out infinite;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .aesthetic-poster:hover {
+            transform: translateY(-10px) scale(1.01);
+            box-shadow: 
+                0 40px 100px rgba(139, 0, 0, 0.6),
+                0 0 0 1px rgba(255, 165, 0, 0.3),
+                inset 0 1px 0 rgba(255, 255, 255, 0.9);
         }
 
         @keyframes floatPoster {
@@ -582,12 +648,40 @@
             margin: 25px 0;
             box-shadow: 0 15px 40px rgba(0,0,0,0.15);
             border: 4px solid #ffa500;
+            position: relative;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+        }
+
+        .venue-image-container:hover {
+            transform: scale(1.02);
+            box-shadow: 0 20px 60px rgba(255, 165, 0, 0.3);
+        }
+
+        .venue-image-container::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.4), transparent);
+            transition: left 0.6s ease;
+            z-index: 1;
+        }
+
+        .venue-image-container:hover::before {
+            left: 100%;
         }
 
         .venue-image-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+
+        .venue-image-container:hover img {
+            transform: scale(1.1);
         }
 
         .venue-name {
@@ -633,6 +727,12 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.15);
             border: 4px solid #ffa500;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .qr-code-box:hover {
+            transform: translateY(-5px) rotate(2deg);
+            box-shadow: 0 10px 30px rgba(255, 165, 0, 0.4);
         }
 
         .qr-code-box img {
@@ -647,36 +747,92 @@
             overflow: hidden;
             box-shadow: 0 5px 20px rgba(0,0,0,0.1);
             border: 2px solid #e0e0e0;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .map-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
         }
 
         .map-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .map-box:hover img {
+            transform: scale(1.1);
         }
 
         .cta {
             background: linear-gradient(135deg, #ff6b6b 0%, #c92a2a 100%);
             color: white;
             text-align: center;
-            padding: 80px 20px;
-            border-radius: 15px;
+            padding: 100px 20px;
+            border-radius: 20px;
             margin: 60px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 
+                0 20px 60px rgba(201, 42, 42, 0.4),
+                inset 0 -5px 20px rgba(0,0,0,0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+            animation: rotateGlow 10s linear infinite;
+        }
+
+        @keyframes rotateGlow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         footer {
-            background: #0a0a0a;
+            background: linear-gradient(180deg, #0a0a0a 0%, #1a1a1a 100%);
             color: white;
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 20px;
             position: relative;
             z-index: 1;
-            border-top: 2px solid rgba(139, 0, 0, 0.3);
+            border-top: 2px solid rgba(255, 165, 0, 0.3);
+        }
+
+        footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, #ffa500, transparent);
+            animation: shimmerLine 3s ease-in-out infinite;
+        }
+
+        @keyframes shimmerLine {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
         }
 
         footer p {
             margin: 10px 0;
+        }
+
+        footer img {
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        footer img:hover {
+            transform: scale(1.1);
+            filter: drop-shadow(0 4px 15px rgba(255, 165, 0, 0.6));
         }
 
         .ministry-name {
@@ -715,10 +871,34 @@
                 display: block;
             }
 
+            .hero-overlay {
+                bottom: 50px;
+            }
+
             .hero-btn {
-                font-size: 0.9em;
-                padding: 14px 40px;
-                letter-spacing: 1px;
+                padding: 16px 50px;
+                font-size: 1em;
+                letter-spacing: 2px;
+            }
+
+            .coming-soon-badge {
+                padding: 25px 35px !important;
+            }
+
+            .coming-soon-title {
+                font-size: 1.8em !important;
+                margin-bottom: 12px !important;
+            }
+
+            .coming-soon-text {
+                font-size: 0.95em !important;
+                max-width: 300px !important;
+            }
+
+            .check-sizes-btn {
+                padding: 14px 40px !important;
+                font-size: 1em !important;
+                letter-spacing: 1.5px !important;
             }
 
             .aesthetic-poster {
@@ -952,19 +1132,179 @@
             box-shadow: 0 7px 20px rgba(0,0,0,0.3) !important;
         }
 
+        footer a {
+            transition: all 0.3s ease;
+        }
+
         footer a:hover svg {
-            opacity: 0.8;
+            opacity: 1;
             filter: drop-shadow(0 4px 8px rgba(255, 165, 0, 0.4));
+            animation: pulse 0.5s ease-in-out;
         }
 
         footer a:hover {
             background: rgba(255, 165, 0, 0.25) !important;
-            transform: translateY(-3px);
+            transform: translateY(-3px) scale(1.1);
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Selection */
+        ::selection {
+            background: rgba(255, 165, 0, 0.3);
+            color: #1a1a1a;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(180deg, #ffa500, #ff6b6b);
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: linear-gradient(180deg, #ff8c00, #c92a2a);
+        }
+
+        /* Link Hover Effects */
+        a {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .body-text a {
+            background: linear-gradient(to right, #ffa500, #ff6b6b);
+            background-size: 0% 2px;
+            background-repeat: no-repeat;
+            background-position: left bottom;
+            transition: background-size 0.3s ease;
+        }
+
+        .body-text a:hover {
+            background-size: 100% 2px;
+        }
+
+        /* Button Check Sizes */
+        .check-sizes-btn {
+            background: #1a1a1a;
+            color: white;
+            border: none;
+            padding: 18px 50px;
+            font-size: 1.2em;
+            font-weight: 700;
+            border-radius: 50px;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .check-sizes-btn::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 0;
+            height: 0;
+            background: rgba(255, 165, 0, 0.3);
+            border-radius: 50%;
+            transform: translate(-50%, -50%);
+            transition: width 0.6s ease, height 0.6s ease;
+        }
+
+        .check-sizes-btn:hover::before {
+            width: 400px;
+            height: 400px;
+        }
+
+        .check-sizes-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 40px rgba(255, 165, 0, 0.4);
+            background: linear-gradient(135deg, #1a1a1a, #2d2d2d);
+        }
+
+        /* Coming Soon Badge */
+        .coming-soon-badge {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 165, 0, 0.98), rgba(255, 107, 107, 0.98));
+            padding: 40px 60px;
+            border-radius: 20px;
+            box-shadow: 
+                0 20px 60px rgba(0,0,0,0.5),
+                inset 0 -2px 10px rgba(0,0,0,0.2),
+                0 0 0 4px rgba(255,255,255,0.2);
+            animation: badgePulse 3s ease-in-out infinite;
+            backdrop-filter: blur(10px);
+        }
+
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: translate(-50%, -50%) scale(1);
+                box-shadow: 
+                    0 20px 60px rgba(0,0,0,0.5),
+                    inset 0 -2px 10px rgba(0,0,0,0.2),
+                    0 0 0 4px rgba(255,255,255,0.2);
+            }
+            50% {
+                transform: translate(-50%, -50%) scale(1.05);
+                box-shadow: 
+                    0 25px 80px rgba(0,0,0,0.6),
+                    inset 0 -2px 10px rgba(0,0,0,0.2),
+                    0 0 0 6px rgba(255,255,255,0.3);
+            }
+        }
+
+        .coming-soon-title {
+            font-size: 2.8em;
+            font-weight: 900;
+            color: white;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-bottom: 15px;
+            text-shadow: 
+                2px 2px 4px rgba(0,0,0,0.3),
+                0 0 20px rgba(255,255,255,0.5);
+            animation: titleShine 2s ease-in-out infinite;
+        }
+
+        @keyframes titleShine {
+            0%, 100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 20px rgba(255,255,255,0.5); }
+            50% { text-shadow: 2px 2px 4px rgba(0,0,0,0.3), 0 0 30px rgba(255,255,255,0.8); }
+        }
+
+        .coming-soon-text {
+            font-size: 1.15em;
+            color: white;
+            font-weight: 600;
+            line-height: 1.8;
+            max-width: 450px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
         }
     </style>
 </head>
 <body>
-   
+    <!-- Logo sa sulok -->
+    <div class="logo-container">
+        <img src="images/logo.png" alt="CLM Logo">
+    </div>
+
     <!-- Menu button sa sulok -->
     <button class="menu-button" onclick="toggleSidebar()">☰</button>
 
@@ -1136,20 +1476,27 @@
 
                     <div style="text-align: center; margin: 40px 0 30px 0;">
                         <div style="font-size: 3.5em; font-weight: 900; font-style: italic; background: linear-gradient(135deg, #ffa500, #ff8c00, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; letter-spacing: 2px; animation: gradientText 3s ease-in-out infinite;">
-                            GRAB YOUR
+                            WORSHIP NIGHT
                         </div>
                         <div style="font-size: 3.5em; font-weight: 900; font-style: italic; background: linear-gradient(135deg, #ffa500, #ff8c00, #ff6b6b); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; line-height: 1.1; letter-spacing: 2px; animation: gradientText 3s ease-in-out infinite; margin-top: -10px;">
-                            WORSHIP NIGHT SHIRT!
+                            SHIRT!
                         </div>
                     </div>
 
-                    <div style="display: flex; justify-content: center; align-items: center; margin: 50px 0; min-height: 450px;">
-                        <img src="images/shirt.png" alt="Worship Night Shirt" style="max-width: 100%; height: auto; max-height: 500px; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3));">
+                    <div style="display: flex; justify-content: center; align-items: center; margin: 50px 0; min-height: 450px; position: relative;">
+                        <img src="images/shirt.png" alt="Worship Night Shirt - Coming Soon" style="max-width: 100%; height: auto; max-height: 500px; object-fit: contain; filter: drop-shadow(0 20px 40px rgba(0,0,0,0.3)) grayscale(20%); opacity: 0.7;">
+                        <div class="coming-soon-badge">
+                            <div class="coming-soon-title">Design Coming Soon!</div>
+                            <div class="coming-soon-text">
+                                Stay tuned, we'll update this page as soon as it's ready!<br>
+                                Sizes and shirt brand are listed below.
+                            </div>
+                        </div>
                     </div>
 
                     <div style="text-align: center; margin: 20px 0 30px 0;">
                         <div style="font-size: 3.5em; font-weight: 700; color: #1a1a1a; margin-bottom: 25px;">₱300</div>
-                        <button onclick="document.getElementById('sizeModal').style.display='flex'" style="background: #1a1a1a; color: white; border: none; padding: 15px 40px; font-size: 1.1em; font-weight: 700; border-radius: 50px; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; transition: all 0.3s ease; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
+                        <button onclick="document.getElementById('sizeModal').style.display='flex'" class="check-sizes-btn">
                             Check Sizes
                         </button>
                     </div>
@@ -1157,10 +1504,10 @@
                     <div class="poster-body">
                         <div class="body-section">
                             <div class="body-heading">
-                                🛍️ How to Order
+                                🛍️ Pre-Order Now!
                             </div>
                             <div class="body-text">
-                                Contact <strong>Regine Bondoc</strong> on Facebook to order your shirt:<br>
+                                Design coming soon, but you can already pre-order your shirt! Contact <strong>Regine Bondoc</strong> on Facebook:<br>
                                 <a href="https://www.facebook.com/regine.bondoc.98" target="_blank" style="display: inline-flex; align-items: center; gap: 8px; color: #1a1a1a; font-weight: 700; text-decoration: none; margin-top: 10px;">
                                     <svg width="20" height="20" viewBox="0 0 24 24" fill="#1a1a1a">
                                         <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
@@ -1184,7 +1531,13 @@
                     <!-- REGULAR -->
                     <div style="margin-bottom: 40px;">
                         <h3 style="text-align: center; color: #ff6b6b; font-size: 1.8em; font-weight: 900; margin-bottom: 20px; text-transform: uppercase;">REGULAR</h3>
-                        <div style="overflow-x: auto;">
+                        
+                        <!-- Fruit of the Loom (XS-L) -->
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            <img src="images/Loom.png" alt="Fruit of the Loom" style="height: 40px; width: auto; object-fit: contain; margin-bottom: 8px;">
+                            <div style="font-size: 1.1em; font-weight: 700; color: #1a1a1a;">Fruit of the Loom</div>
+                        </div>
+                        <div style="overflow-x: auto; margin-bottom: 30px;">
                             <table style="width: 100%; border-collapse: collapse; background: #f8f9fa; border-radius: 10px; overflow: hidden;">
                                 <thead>
                                     <tr style="background: #1a1a1a; color: white;">
@@ -1213,41 +1566,49 @@
                                         <td style="padding: 12px; text-align: center;">29.5"</td>
                                         <td style="padding: 12px; text-align: center;">7"</td>
                                     </tr>
-                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
+                                    <tr style="background: white;">
                                         <td style="padding: 12px; text-align: center; font-weight: 700;">L</td>
                                         <td style="padding: 12px; text-align: center;">21"</td>
                                         <td style="padding: 12px; text-align: center;">29.8"</td>
                                         <td style="padding: 12px; text-align: center;">7"</td>
                                     </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- LifeLine (XL-3XL) -->
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            <img src="images/Lifeline.png" alt="LifeLine" style="height: 40px; width: auto; object-fit: contain; margin-bottom: 8px;">
+                            <div style="font-size: 1.1em; font-weight: 700; color: #1a1a1a;">LifeLine</div>
+                        </div>
+                        <div style="overflow-x: auto;">
+                            <table style="width: 100%; border-collapse: collapse; background: #f8f9fa; border-radius: 10px; overflow: hidden;">
+                                <thead>
+                                    <tr style="background: #1a1a1a; color: white;">
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">SIZE</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">WIDTH</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">LENGTH</th>
+                                        <th style="padding: 15px; text-align: center; font-weight: 700; font-size: 1.1em;">SLEEVES</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
                                     <tr style="border-bottom: 1px solid #e0e0e0;">
                                         <td style="padding: 12px; text-align: center; font-weight: 700;">XL</td>
-                                        <td style="padding: 12px; text-align: center;">22.6"</td>
+                                        <td style="padding: 12px; text-align: center;">22"</td>
                                         <td style="padding: 12px; text-align: center;">30"</td>
-                                        <td style="padding: 12px; text-align: center;">8"</td>
+                                        <td style="padding: 12px; text-align: center;"></td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
                                         <td style="padding: 12px; text-align: center; font-weight: 700;">2XL</td>
                                         <td style="padding: 12px; text-align: center;">23"</td>
-                                        <td style="padding: 12px; text-align: center;">31"</td>
-                                        <td style="padding: 12px; text-align: center;">8.5"</td>
+                                        <td style="padding: 12px; text-align: center;">30.5"</td>
+                                        <td style="padding: 12px; text-align: center;"></td>
                                     </tr>
                                     <tr style="border-bottom: 1px solid #e0e0e0;">
                                         <td style="padding: 12px; text-align: center; font-weight: 700;">3XL</td>
-                                        <td style="padding: 12px; text-align: center;">24.5"</td>
-                                        <td style="padding: 12px; text-align: center;">31.6"</td>
-                                        <td style="padding: 12px; text-align: center;">8.5"</td>
-                                    </tr>
-                                    <tr style="border-bottom: 1px solid #e0e0e0; background: white;">
-                                        <td style="padding: 12px; text-align: center; font-weight: 700;">4XL</td>
-                                        <td style="padding: 12px; text-align: center;">25.9"</td>
-                                        <td style="padding: 12px; text-align: center;">33.4"</td>
-                                        <td style="padding: 12px; text-align: center;">8.6"</td>
-                                    </tr>
-                                    <tr style="background: white;">
-                                        <td style="padding: 12px; text-align: center; font-weight: 700;">5XL</td>
-                                        <td style="padding: 12px; text-align: center;">27.8"</td>
-                                        <td style="padding: 12px; text-align: center;">35.2"</td>
-                                        <td style="padding: 12px; text-align: center;">9.2"</td>
+                                        <td style="padding: 12px; text-align: center;">24"</td>
+                                        <td style="padding: 12px; text-align: center;">31"</td>
+                                        <td style="padding: 12px; text-align: center;"></td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -1261,6 +1622,12 @@
                     <!-- OVERSIZED -->
                     <div>
                         <h3 style="text-align: center; color: #ff6b6b; font-size: 1.8em; font-weight: 900; margin-bottom: 20px; text-transform: uppercase;">OVERSIZED</h3>
+                        
+                        <!-- Fruit of the Loom -->
+                        <div style="text-align: center; margin-bottom: 15px;">
+                            <img src="images/Loom.png" alt="Fruit of the Loom" style="height: 40px; width: auto; object-fit: contain; margin-bottom: 8px;">
+                            <div style="font-size: 1.1em; font-weight: 700; color: #1a1a1a;">Fruit of the Loom</div>
+                        </div>
                         <div style="overflow-x: auto;">
                             <table style="width: 100%; border-collapse: collapse; background: #f8f9fa; border-radius: 10px; overflow: hidden;">
                                 <thead>
@@ -1301,12 +1668,6 @@
                                         <td style="padding: 12px; text-align: center;">23.8</td>
                                         <td style="padding: 12px; text-align: center;">30.4</td>
                                         <td style="padding: 12px; text-align: center;">10.5</td>
-                                    </tr>
-                                    <tr style="background: white;">
-                                        <td style="padding: 12px; text-align: center; font-weight: 700;">3XL</td>
-                                        <td style="padding: 12px; text-align: center;">25.3</td>
-                                        <td style="padding: 12px; text-align: center;">30.7</td>
-                                        <td style="padding: 12px; text-align: center;">10.7</td>
                                     </tr>
                                 </tbody>
                             </table>
